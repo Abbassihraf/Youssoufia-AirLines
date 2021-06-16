@@ -1,0 +1,33 @@
+<h1 class="text-center mt-5">Checkout</h1>
+<% if(newOffer){ %>
+<% console.log(newOffer) %>
+<% newOffer.forEach((order)=>{ %>
+    <div class="container mt-5 p-1">
+        <div class="card p-5">
+    
+    <div class="d-flex justify-content-between">
+        <h4>Passengers count:</h4><p><%= numberOfPassengers %></p>
+    </div>
+    <div class="d-flex justify-content-between">
+        <h4>Total amount:</h4><p><%= order.price*numberOfPassengers %></p>
+    </div>
+    
+    <div class="d-flex justify-content-end">
+        <form action="/order" method="POST">
+            <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="**public_key_from_stripe**"
+            data-amount="<%= order.price*numberOfPassengers*100 %>"
+            data-name="Your Order"
+            data-description="Fly Ticket"
+            data-image="https://images.pexels.com/photos/358319/pexels-photo-358319.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            data-locale="auto"
+            data-currency="MAD">
+    
+            </script>
+        </form>
+    </div>
+</div>
+</div>
+<% }) %>
+<% } %>

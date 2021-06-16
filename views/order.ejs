@@ -1,0 +1,29 @@
+<h1 class="text-center mt-5">Your Order</h1>
+
+<% if(myOrder){ %>
+<% console.log(myOrder) %>
+<% myOrder.forEach((order)=>{ %>
+<div class="container mt-5 p-1">
+    <form action="/order" method="POST">
+        <div class="card p-5">
+            <div class="d-flex justify-content-between p-2">
+                <h4>Order N°:</h4>
+                <input type="text" name="" value="<%= order.orId %>" disabled>
+            </div>
+            <div class="d-flex justify-content-between p-2">
+                <h4>Passengers:</h4>
+                <input type="text" name="passengers" value="<%= order.passengersNum %>" disabled>
+            </div>
+            <div class="d-flex justify-content-between p-2">
+                <h4>Total:</h4>
+                <input type="text" name="total" value="<%= order.totalPrice %>" disabled>
+            </div>
+           
+            <!-- <div class="d-flex justify-content-end p-2">
+                <button type="submit" class="btn btn-primary mt-3 col-4">proceed to checkout</button>
+            </div> -->
+        </div>
+    </form>
+</div>
+<% }) %>
+<% } %>

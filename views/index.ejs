@@ -1,0 +1,40 @@
+<div class="container">
+    <h1 class="text-center mt-5">Discover our latest offers</h1>
+</div>
+
+<div class="container mt-5">
+    <div class="card p-2">
+        <form action="/offer" method="POST">
+        <div class="d-flex text-content-arround">
+            <select class="form-select" aria-label="Default select example" name="departure">
+                <option selected>Departure</option>
+                <% offers.map((data)=>{ %>
+                <option value="<%= data.departure %>"><%= data.departure %></option>
+                <% }) %>
+            </select>
+            <select class="form-select" aria-label="Default select example" name="arrival">
+                <option selected>Arrival</option>
+                <% offers.map((data)=>{ %>
+                <option value="<%= data.arrival %>"><%= data.arrival %></option>
+                <% }) %>
+            </select>
+            <select class="form-select" aria-label="Default select example" name="passengers">
+                <option selected>Passengers</option>
+                <% for(let i=0; i < 20; i++ ){ %>
+                <option value="<%= i+1 %>"><%= i+1 %></option>
+                <% } %>
+
+            </select>   
+        </div>
+        <div class="d-flex text-content-arround mt-3 ">
+            <input class="form-control" type="date" name="fromDate">
+            <input class="form-control" type="date" name="toDate">
+        </div>
+        <div class="container text-center">
+            <button type="submit" class="btn btn-primary mt-3" style="width:50%;">Check</button>
+        </div>
+    
+    </div>
+</form>
+    
+</div>

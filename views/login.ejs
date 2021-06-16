@@ -1,0 +1,24 @@
+<h1 class="text-center mt-5">Login</h1>
+
+<div class="container mt-5">
+  
+  <% if(errorMessage){ %>
+    <P class="text-center mt-3 text-danger"><%= errorMessage %></P>
+    <% } %>
+    
+   <div class="card cart mx-auto" >
+    <form class="register mx-auto p-3" action="/login" method="POST">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Email...">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Password...">
+        </div>
+        
+        <button type="submit" class="btn btn-primary col-12">Login</button>
+     
+      </form>
+   </div> 
+</div>
